@@ -27,11 +27,11 @@ function Footer() {
                             className="youtube social">
                             <FontAwesomeIcon icon={faYoutube} size="2x" />
                         </a>
-                        <a href="https://www.facebook.com/learnbuildteach/"
+                        <a href="https://www.facebook.com/grad.rsu/"
                             className="facebook social">
                             <FontAwesomeIcon icon={faFacebook} size="2x" />
                         </a>
-                        <a href="https://www.twitter.com/jamesqquick" className="twitter social">
+                        <a href="https://www.twitter.com/" className="twitter social">
                             <FontAwesomeIcon icon={faTwitter} size="2x" />
                         </a>
                     </div>

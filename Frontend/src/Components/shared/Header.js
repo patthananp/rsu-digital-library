@@ -14,7 +14,7 @@ function Header() {
                     height="60"
                     className="d-inline-block align-bottom"
                 />
-                    Digital Library
+                    RSU Digital Library
                 </Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
