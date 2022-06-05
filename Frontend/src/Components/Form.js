@@ -1,0 +1,56 @@
+import { useState } from 'react'
+
+
+let Form = (props) => {
+    const [title, setTitle] = useState('')
+    const [body, setBody] = useState('')
+
+    const insertArticle = () =>{
+    //   APIService.InsertArticle({title,body})
+    //   .then((response) => props.insertedArticle(response))
+    //   .catch(error => console.log('error',error))
+    }
+
+    const handleSubmit=(event) => { 
+        console.log(title)
+        console.log(body)
+        event.preventDefault()
+    //   insertArticle()
+    //   setTitle('')
+    //   setBody('')
+    }
+
+    return (
+       <div>
+            <form onSubmit = {handleSubmit} >
+                <label htmlFor="title" className="form-label">Title</label>
+                <input 
+                type="text"
+                className="form-control" 
+                placeholder ="Enter title"
+                value={title}
+                onChange={(e)=>setTitle(e.target.value)}
+                required
+                />
+
+                <label htmlFor="body" className="form-label">Body</label>
+                <textarea 
+                className="form-control" 
+                placeholder ="Enter body" 
+                rows='6'
+                value={body}
+                onChange={(e)=>setBody(e.target.value)}
+                required
+                >
+                </textarea>
+
+                <button 
+                className="btn btn-primary mt-2"
+                >
+                Publish article</button>
+            </form>
+       </div>
+    )
+}
+
+export default Form;

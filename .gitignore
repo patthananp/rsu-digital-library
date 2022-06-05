@@ -3,6 +3,7 @@
 
 # Backend
 venv
+__pycache__
 
 # Frontend
 node_modules
