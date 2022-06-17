@@ -5,6 +5,7 @@ import Home from './Home';
 
 
 import MainLayout from './Components/layouts/MainLayout';
+// import PicSlide from './Components/layouts/Slide'
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,6 +16,7 @@ library.add(fas)
 function App() {
   return (
     <div>
+      {/* <PicSlide /> */}
       <MainLayout />
     </div>
   );

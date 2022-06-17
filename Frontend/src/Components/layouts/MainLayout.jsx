@@ -5,6 +5,7 @@ import Home from "../../Home";
 import Search from "../../Pages/Search";
 import { Container } from "react-bootstrap";
 import Form from "../Form";
+import PicSlide from "./Slide";
 
 
 function MainLayout() {
@@ -12,6 +13,9 @@ function MainLayout() {
       <div>
             <Header/>
             <Container>
+            
+                <PicSlide />
+            
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>} />

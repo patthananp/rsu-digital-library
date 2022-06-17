@@ -23,7 +23,7 @@ function Header() {
                         <Nav.Link href="/contact">Contact</Nav.Link>
                     </Nav>
                     <Navbar.Text>
-                        Signed in as: <a href="#login">Mark Otto</a>
+                        Signed in as: <a href="#login">Patthanan</a>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
