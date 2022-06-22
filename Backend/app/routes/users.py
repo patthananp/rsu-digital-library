@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint
+from flask import Blueprint, request
 from app import db
 
 from app.models.user import User
@@ -22,19 +22,42 @@ def retrieve(id):
     return json.dumps(user)
 
 @users_bp.route('/', methods = ['POST'])
-def create(firstname, lastname):
-    new_user = User(firstname='yok', lastname='hhh')
+def create():
+    request_data = request.json
+    print(f'request_data={request_data}')
+    new_user = User(**request_data)
+    # new_user = User(firstname='yok', lastname='hhh')
     db.session.add(new_user)
     db.session.commit()
-    return json.dumps(new_user.to_dict())
+    return json.dumps(new_user.as_dict())
  
-   
-    # new_user.create('yyy', 'hhh')
-    # return json.dumps(new_user)
 
 
-# @users_bp.route('/<id>', methods = ['PUT'])
-# def update():
+@users_bp.route('/<id>', methods = ['PUT'])
+def update(id):
+    request_data = request.json
+    # if firstname not in data:
+    #     return {
+    #         'error' : 'Bad Request',
+    #         'message' : 'Not found data'
+    #     }, 400
+    user = User.query.filter_by(id = id).first_or_404()
+    # user.firstname = request_data['firstname']
+    if 'firstname' in request_data:
+        user.firstname = request_data.get('firstname')
+    db.session.commit()
+    return json.dumps(user.as_dict())
+    
+
+@users_bp.route('/<id>', methods = ['DELETE'])
+def delete(id):
+    user = User.query.filter_by(id = id).first_or_404()
+    db.session.delete(user)
+    db.session.commit()
+    return {
+        'success' : 'Data deleted successfully'
+    }
+
 
 
 # create POST ,rest api
