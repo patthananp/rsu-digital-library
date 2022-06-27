@@ -1,59 +1,91 @@
 import json
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app import db
 
 from app.models.user import User
+from app.common.response import Response
 
 users_bp = Blueprint('users', __name__, url_prefix='/users')
 
 @users_bp.route('/')
 def list():
-    users = User.query.all()
-    if users:
-        users = [user.as_dict() for user in users]
-    return json.dumps(users)
+    try:
+        users = User.query.all()
+        if users:
+            users = [user.as_dict() for user in users]
+        response = Response.success(users)
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
+    return jsonify(response), 200
 
 @users_bp.route('/<id>')
 def retrieve(id):
-    user = User.query.filter_by(id=id).first()
-    print(user)
-    if user:
-        user = user.as_dict()
+    try:
+        user = User.query.filter_by(id=id).first()
+        print(user)
+        if user:
+            user = user.as_dict()
+        response = Response.success(users)
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
     return json.dumps(user)
 
 @users_bp.route('/', methods = ['POST'])
 def create():
-    request_data = request.json
-    print(f'request_data={request_data}')
-    new_user = User(**request_data)
-    # new_user = User(firstname='yok', lastname='hhh')
-    db.session.add(new_user)
-    db.session.commit()
-    return json.dumps(new_user.as_dict())
+    try:
+        request_data = request.json
+        print(f'request_data={request_data}')
+        new_user = User(**request_data)
+        db.session.add(new_user)
+        db.session.commit()
+        response = Response.success(new_user.as_dict())
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
+    return jsonify(response)
  
-
-
 @users_bp.route('/<id>', methods = ['PUT'])
 def update(id):
-    request_data = request.json
-    # if firstname not in data:
-    #     return {
-    #         'error' : 'Bad Request',
-    #         'message' : 'Not found data'
-    #     }, 400
-    user = User.query.filter_by(id = id).first_or_404()
-    # user.firstname = request_data['firstname']
-    if 'firstname' in request_data:
-        user.firstname = request_data.get('firstname')
-    db.session.commit()
-    return json.dumps(user.as_dict())
+    try: 
+        request_data = request.json
+        user = User.query.filter_by(id = id).first()
+        if user:
+            if  request_data.get('prefix'):
+                user.prefix = request_data.get('prefix')
+
+            if  request_data.get('firstname'):
+                user.firstname = request_data.get('firstname')
+
+            if  request_data.get('lastname'):
+                user.lastname = request_data.get('lastname')
+            
+            if  request_data.get('email'):
+                user.email = request_data.get('email')
+
+            if  request_data.get('password'):
+                user.password = request_data.get('password')
+        else:
+            raise Exception(f'user id = {id} not found.')
+        
+        db.session.commit()
+        response = Response.success(user.as_dict())
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
+    return jsonify(response)
     
 
 @users_bp.route('/<id>', methods = ['DELETE'])
 def delete(id):
-    user = User.query.filter_by(id = id).first_or_404()
-    db.session.delete(user)
-    db.session.commit()
+    try:
+        user = User.query.filter_by(id = id).first_or_404()
+        db.session.delete(user)
+        db.session.commit()
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
     return {
         'success' : 'Data deleted successfully'
     }
