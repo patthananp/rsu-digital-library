@@ -7,6 +7,10 @@ import { Container } from "react-bootstrap";
 import Form from "../Form";
 import PicSlide from "./Slide";
 
+import Register from "../../Pages/register";
+import Category from "../../Pages/category";
+import CategoryList from "../../Pages/CategoryList";
+
 
 function MainLayout() {
   return (
@@ -14,15 +18,23 @@ function MainLayout() {
             <Header/>
             <Container>
             
-                <PicSlide />
+                {/* <PicSlide /> */}
             
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>} />
                         <Route path="/search" element={<Search/>} />
+
+                        <Route path="/manage" element={<CategoryList/>} />
+
+
+                        <Route path="/register" element={<Register/>} />
                     </Routes>
                 </Router>
+
+  
             </Container>
+
             <Footer/>
       </div>
  

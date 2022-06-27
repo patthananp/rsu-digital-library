@@ -4,12 +4,17 @@ import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
 import {Container, Row, Col, Nav} from 'react-bootstrap';
 import Search from './Pages/Search';
 
+import PicSlide from './Components/layouts/Slide';
+
 
 function Home() {
   return (
     <Container>
         <SearchBar />
         <Container className='mt-5'>
+
+        <PicSlide />
+        
             <Row>
                 <Col sm={2}>
                   
