@@ -14,16 +14,16 @@ function Home() {
         <Container className='mt-5'>
 
         <PicSlide />
-        
+
             <Row>
                 <Col sm={2}>
                   
                     <Row>
                         Saved Items
                         <Nav>
-                            <Nav.Link href='#'>test1</Nav.Link>
-                            <Nav.Link href='#'>test2</Nav.Link>
-                            <Nav.Link href='#'>test3</Nav.Link>
+                            <Nav.Link href='#'>TEST link to Saved Items 1</Nav.Link>
+                            <Nav.Link href='#'>TEST link to Saved Items 2</Nav.Link>
+                            <Nav.Link href='#'>TEST link to Saved Items 3</Nav.Link>
                         </Nav>
                     </Row>
                     <Row>

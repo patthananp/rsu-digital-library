@@ -10,6 +10,7 @@ import PicSlide from "./Slide";
 import Register from "../../Pages/register";
 import Category from "../../Pages/category";
 import CategoryList from "../../Pages/CategoryList";
+import Login from "../../Pages/login";
 
 
 function MainLayout() {
@@ -28,7 +29,9 @@ function MainLayout() {
                         <Route path="/manage" element={<CategoryList/>} />
 
 
-                        <Route path="/register" element={<Register/>} />
+                        {/* <Route path="/register" element={<Register/>} /> */}
+                        <Route path="/login" element={<Login/>} />
+
                     </Routes>
                 </Router>
 
