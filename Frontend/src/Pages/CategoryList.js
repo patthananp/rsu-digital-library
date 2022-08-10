@@ -1,7 +1,7 @@
 import {Table} from 'react-bootstrap';
 
 import CategoryItem from "./CategoryItem"
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 function CategoryList() {
     

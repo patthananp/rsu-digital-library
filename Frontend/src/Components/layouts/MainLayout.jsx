@@ -1,3 +1,4 @@
+import React from 'react';
 import Footer from "../shared/Footer"
 import Header from "../shared/Header"
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
