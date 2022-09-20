@@ -19,25 +19,17 @@ function MainLayout() {
             <Header/>
             <Container>
             
-                {/* <PicSlide /> */}
-            
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>} />
                         <Route path="/search" element={<Search/>} />
-
                         <Route path="/manage" element={<CategoryList/>} />
-
-
-                        {/* <Route path="/register" element={<Register/>} /> */}
                         <Route path="/login" element={<Login/>} />
-
+                        <Route path="/register" element={<Register/>} />
                     </Routes>
                 </Router>
 
-  
             </Container>
-
             <Footer/>
       </div>
  

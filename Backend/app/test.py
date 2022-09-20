@@ -1,2 +1,0 @@
-def testfucn():
-    print('ok')

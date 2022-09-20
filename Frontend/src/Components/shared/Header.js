@@ -2,7 +2,6 @@ import {BrowserRouter as Router,Routes, Route, Link, NavLink} from "react-router
 
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
-
 function Header() {
   return (
         <Navbar sticky="top" bg="light">
@@ -20,15 +19,14 @@ function Header() {
                     <Nav>
                         <Nav.Link href="/search">Search</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
-                        {/* <Nav.Link href="/contact">Contact</Nav.Link> */}
                         <Nav.Link href="/manage">Management</Nav.Link>
-
                     </Nav>
+
                     <Navbar.Text>
                         Signed in as: <a href="#login">Patthanan</a>
                     </Navbar.Text>
+                    
                     <Nav>
-                        {/* <Nav.Link href="/register">Log out</Nav.Link> */}
                         <Nav.Link href="/login">Log out</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

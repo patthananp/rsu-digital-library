@@ -31,7 +31,7 @@ function Search() {
 
     let retrieveThesis = () => {
         console.log()
-        return fetch(`/books`,{
+        return fetch(`/researches`,{
             'method':'GET',
             headers : {
                 'Content-Type':'application/json'
@@ -43,7 +43,7 @@ function Search() {
 
     let listBooks = () => {
         console.log()
-        return fetch(`/books`,{
+        return fetch(`/researches`,{
             'method':'GET',
             headers : {
                 'Content-Type':'application/json'
@@ -61,7 +61,7 @@ function Search() {
         // console.log(data)
         // setItems(await listBooks())
         listBooks().then((data, err) => {
-            setItems(data)
+            setItems(data.data)
         })
     //   insertArticle()
     //   setTitle('')
