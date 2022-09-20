@@ -1,3 +1,4 @@
+import React from 'react';
 import SearchBar from './Components/shared/SearchBar';
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
 

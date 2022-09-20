@@ -1,3 +1,5 @@
+import React from 'react';
+
 function CategoryItem(props) {
     let item = props
     
