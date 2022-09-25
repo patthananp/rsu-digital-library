@@ -1,8 +1,11 @@
 .title {
-    /* color : rgb(224, 44, 137); */
     font-size : 20px;
     font-weight: bolder;
     text-decoration: none;
+}
+
+.research-type {
+    color: rgb(224, 44, 137);
 }
 
 .detail {
@@ -10,8 +13,9 @@
 }
 
 .databox {
-    border : solid 2px black;
+    border : dashed 2px gray;
     border-radius: 10px;
     padding-left: 20px;
+    margin-top: 30px;
     /* box-shadow: 10px; */
 }

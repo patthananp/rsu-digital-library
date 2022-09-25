@@ -6,7 +6,8 @@ class User(db.Model):
     firstname = db.Column(db.String(80), nullable=False)
     lastname = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(30), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    status = db.Column(db.String(10))
 
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}

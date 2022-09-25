@@ -10,7 +10,7 @@ let SearchResultItem =(props) => {
     return (
         <div className='databox'>
             <Row>
-                <Col sm={3}>
+                <Col className="research-type" sm={3}>
                     O IS/ THESIS
                 </Col>
             </Row>
