@@ -22,5 +22,5 @@ function App() {
     </div>
   );
 }
-$argon2id$v=19$m=65536,t=3,p=4$9Ce2lxsQu4xrc21T3q1GOg$x64cPqxccTWRM+TehkwhUwDNx0vVOcmnJvFN2oeUZsc
+
 export default App;

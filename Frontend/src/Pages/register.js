@@ -31,7 +31,7 @@ function Register(){
 
     let createUser = () => {
         console.log()
-        return fetch(`/users`,{
+        return fetch(`/users/register`,{
             'method':'POST',
             headers : {
                 'Content-Type':'application/json'
