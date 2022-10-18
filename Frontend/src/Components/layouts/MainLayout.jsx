@@ -10,9 +10,9 @@ import PicSlide from "./Slide";
 
 import Register from "../../Pages/register";
 import Category from "../../Pages/category";
-import CategoryList from "../../Pages/CategoryList";
+import CategoryList from "../../Pages/Manage";
 import Login from "../../Pages/login";
-
+import Upload from '../../Pages/Upload';
 
 function MainLayout() {
   return (
@@ -27,6 +27,7 @@ function MainLayout() {
                         <Route path="/manage" element={<CategoryList/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/register" element={<Register/>} />
+                        <Route path="/upload" element={<Upload/>} />
                     </Routes>
                 </Router>
 

@@ -1,7 +1,10 @@
-import {Table} from 'react-bootstrap';
-
+import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Navbar, Nav, Container} from 'react-bootstrap';
+import Upload from './Upload';
+
 
 function CategoryList() {
     
@@ -28,11 +31,13 @@ function CategoryList() {
 
     return (
         <div>
+            <h4>My Research</h4>
             <Table>
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Keyword</th>
+                        <th>Abstraction</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -42,7 +47,10 @@ function CategoryList() {
                     })}
                 </tbody>
             </Table>
-            
+            <hr />
+
+            <Button type="submit" href="/Upload" className="btn btn-dark btn-lg btn-block">Upload New Research</Button>
+
         </div>
     )
 }

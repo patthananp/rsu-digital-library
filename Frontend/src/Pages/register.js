@@ -62,6 +62,7 @@ function Register(){
                     <option value="Professor">Professor</option>
                     <option value="Assistant Professor">Assistant Professor</option>
                     <option value="Associate Professor">Associate Professor</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 

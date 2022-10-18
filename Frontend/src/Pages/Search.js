@@ -20,15 +20,6 @@ function Search() {
     })
     const [items, setItems] = useState([])
 
-    // let items = [
-    //     {id : 1, title : "Computer Network", year : 2019, Author : "Jenny", Supervisor : "Billy", Page : 10},
-    //     {id : 2, title : "Apple Fruit", year : 2021, Author : "Renny", Supervisor : "Billy", Page : 5},
-    //     {id : 3, title : "Social", year : 2020, Author : "Aenny", Supervisor : "Tilly", Page : 100},
-    //     {id : 4, title : "Compute `r AI", year : 2019, Author : "Jenny", Supervisor : "Billy", Page : 10},
-    //     {id : 5, title : "Network", year : 2019, Author : "Jenny", Supervisor : "Tilly", Page : 15}
-    // ]
-    // let items = []
-
     let retrieveThesis = () => {
         console.log()
         return fetch(`/researches`,{
@@ -150,6 +141,14 @@ function Search() {
                     </Col>
                 </Row>
             </Form>
+            {/* <div className="mt-3">
+            
+            <label>Upload file</label>
+            <input type="file" className="form-control" 
+                value={formData.firstname}
+                onChange={e => setFormData({...formData, firstname: e.target.value})} />
+            </div> */}
+  
             <hr />
             <SearchResult items={items}/>
         </div>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-carousel-minimal';
+import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
+
 
 function PicSlide() {
  const data = [
     {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+      image: "https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg",
       // caption: "San Francisco"
     },
     {
@@ -13,10 +15,6 @@ function PicSlide() {
     },
     {
       image: "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-      // caption: "Darjeeling"
-    },
-    {
-      image: "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
       // caption: "Darjeeling"
     }
   ];
@@ -31,6 +29,9 @@ function PicSlide() {
   // }
   return (
     <div className="App">
+        <a href="https://www2.rsu.ac.th/Home" target="_blank" rel="noreferrer">
+          <img src={"https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg"} alt="" />
+        </a>
       {/* <div style={{ textAlign: "center" }}>
         <h2>React Carousel Minimal</h2>
         <p>Easy to use, responsive and customizable carousel component for React Projects.</p>
