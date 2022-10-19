@@ -1,9 +1,11 @@
 import json
-from flask import Blueprint, request, jsonify
+import os
+from flask import current_app, Blueprint, request, jsonify
 from app import db
 
 from app.models.research import Research
 from app.common.response import Response
+from app.common.s3utils import S3utils
 
 researches_bp = Blueprint('researches', __name__, url_prefix='/researches')
 
@@ -32,15 +34,29 @@ def retrieve(id):
         response = Response.error(e)
     return json.dumps(research)
 
+def allowed_file(filename):
+    print(f"current_app.config[ALLOWED_EXTENSIONS]: {current_app.config['ALLOWED_EXTENSIONS']}")
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
+
 @researches_bp.route('/', methods = ['POST'])
 def create():
-    try:
-        request_data = request.json
-        print(f'request_data={request_data}')
-        new_research = Research(**request_data)
+    try:    
+        files = request.files
+        form_data = request.form
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = file.filename
+            filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+            
+            s3utils = S3utils()
+            s3utils.upload_file(filepath)
+            
+        new_research = Research(**form_data)
         db.session.add(new_research)
         db.session.commit()
         response = Response.success(new_research.as_dict())
+        response = Response.success('success')
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)

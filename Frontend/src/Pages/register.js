@@ -50,13 +50,13 @@ function Register(){
 
             <h3>Register Form</h3>
 
-            <div className="mt-3">
+            <div className="mt-3"> 
                 <label for="Name Title">Choose a Name Title : </label>
                 <select className='form-select form-select-md mb-3' id="Name Title" 
                     value={formData.prefix} 
                     onChange={e => setFormData({...formData, prefix: e.target.value})}
                 >
-                    <option value="Mr." selected>Mr.</option>
+                    <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>
                     <option value="Miss">Miss</option>
                     <option value="Professor">Professor</option>
