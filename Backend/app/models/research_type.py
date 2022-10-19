@@ -5,7 +5,7 @@ class Research_type(db.Model):
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.Text, nullable=True)
 
-    researches = db.relationship('Research', backref='research_type')
+    # researches = db.relationship('Research', backref='research_type')
 
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}

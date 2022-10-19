@@ -1,4 +1,3 @@
-import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
@@ -6,11 +5,11 @@ from flask import current_app
 
 
 class S3utils():
-    def __init__(self, aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'], aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'], bucket=current_app.config['AWS_S3_DEFAULT_BUCKET']):
+    def __init__(self, aws_access_key_id=None, aws_secret_access_key=None, bucket=None):
         self.s3_client = boto3.client('s3',
-                                 aws_access_key_id=aws_access_key_id,
-                                 aws_secret_access_key=aws_secret_access_key)
-        self.bucket = bucket
+                                 aws_access_key_id=aws_access_key_id or current_app.config['AWS_ACCESS_KEY_ID'],
+                                 aws_secret_access_key=aws_secret_access_key or current_app.config['AWS_SECRET_ACCESS_KEY'])
+        self.bucket = bucket or current_app.config['AWS_S3_DEFAULT_BUCKET']
         
     def upload_file(self, file_name, object_name=None):
         """Upload a file to an S3 bucket
@@ -28,9 +27,7 @@ class S3utils():
         # Upload the file
         try:
             response = self.s3_client.upload_file(file_name, self.bucket, object_name)
-            logging.debug(response)
         except ClientError as e:
-            logging.error(e)
             return False
         return True
     
@@ -49,9 +46,7 @@ class S3utils():
         # Download File
         try:
             response = self.s3_client.download_file(file_name, self.bucket, object_name)
-            logging.debug(response)
         except ClientError as e:
-            logging.error(e)
             return False
         return True
     
