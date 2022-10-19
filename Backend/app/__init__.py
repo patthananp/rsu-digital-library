@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from config import Config
+from config import BaseConfig
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(BaseConfig)
 db = SQLAlchemy(app)
 
 from app import routes, models

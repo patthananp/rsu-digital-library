@@ -10,28 +10,28 @@ function CategoryList() {
     
     const [items, setItems] = useState([])
 
-    function listCategoryTypes() {
-       fetch(`/category-types`,{
-            'method':'GET',
-            headers : {
-                'Content-Type':'application/json'
-            }
-        }).then(response => {
-            return response.json()
-        }).then(data => {
-            if (data.meta?.response_code == 1000) {
-                setItems(data.data)
-            }
-        })
-    }
+    // function listCategoryTypes() {
+    //    fetch(`/category-types`,{
+    //         'method':'GET',
+    //         headers : {
+    //             'Content-Type':'application/json'
+    //         }
+    //     }).then(response => {
+    //         return response.json()
+    //     }).then(data => {
+    //         if (data.meta?.response_code == 1000) {
+    //             setItems(data.data)
+    //         }
+    //     })
+    // }
 
     console.log('before')
-    listCategoryTypes()
+    // listCategoryTypes()
     console.log('after')
 
     return (
         <div>
-            <h4>My Research</h4>
+            <h4 className='mt-5'>My Research</h4>
             <Table>
                 <thead>
                     <tr>

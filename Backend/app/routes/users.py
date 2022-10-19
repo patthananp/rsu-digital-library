@@ -5,6 +5,9 @@ from argon2 import PasswordHasher
 
 from app.models.user import User
 from app.common.response import Response
+from config import BaseConfig
+
+from itsdangerous import URLSafeTimedSerializer
 
 users_bp = Blueprint('users', __name__, url_prefix='/users')
 ph = PasswordHasher()
@@ -97,8 +100,9 @@ def update(id):
 def register():
     try:
         request_data = request.json
+        email = request_data.get('email')
         # Check existing user
-        exists_user = User.query.filter_by(email=request_data.get('email')).first()
+        exists_user = User.query.filter_by(email=email).first()
         # if existing
         if exists_user:
             raise Exception('email already registered')
@@ -109,11 +113,42 @@ def register():
         new_user = User(**request_data)
         db.session.add(new_user)
         db.session.commit()
-        # TODO send verify email
-        response = Response.success(users.as_dict())
+        # TODO send confirmation email
+        token = generate_confirmation_token(email)
+        print(token)
+        response = Response.success(new_user.as_dict())
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return {
-        'success' : 'Data deleted successfully'
-    }
+    return response
+
+def generate_confirmation_token(email):
+    serializer = URLSafeTimedSerializer(BaseConfig.SECRET_KEY)
+    return serializer.dumps(email, salt=BaseConfig.SECURITY_PASSWORD_SALT)
+
+def confirm_token(token, expiration=3600):
+    serializer = URLSafeTimedSerializer(BaseConfig.SECRET_KEY)
+    try:
+        email = serializer.loads(
+            token,
+            salt=BaseConfig.SECURITY_PASSWORD_SALT,
+            max_age=expiration
+        )
+    except:
+        return False
+    return email
+
+
+@users_bp.route('/confirm/<token>')
+def confirm(token):
+    try:
+        email = confirm_token(token)
+        exists_user = User.query.filter_by(email=email).first()
+        if exists_user:
+            exists_user.status = 'Confirmed'
+            db.session.commit()
+        response = Response.success(email)
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
+    return response
