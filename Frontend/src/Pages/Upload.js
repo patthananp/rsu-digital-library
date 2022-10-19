@@ -2,11 +2,12 @@ import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import axios from 'axios';
 
 function Upload() {
     
-    const [items, setItems] = useState([])
+    const [formData, updateFormData] = useState({})
+    const [selectedFile, setSelectedFile] = useState()
 
     function listCategoryTypes() {
        fetch(`/category-types`,{
@@ -16,45 +17,59 @@ function Upload() {
             }
         }).then(response => {
             return response.json()
-        }).then(data => {
-            if (data.meta?.response_code == 1000) {
-                setItems(data.data)
-            }
         })
     }
 
-    console.log('before')
-    listCategoryTypes()
-    console.log('after')
+    const handleChange = (e) => {
+        updateFormData({
+            ...formData,
+            [e.target.id]: e.target.value.trim()
+        });
+        console.log(formData)
+    };
+
+    const handleChangeFile = (e) => {
+        updateFormData({
+            ...formData,
+            [e.target.id]: e.target.files[0]
+        });
+        console.log(formData)
+    };
+
+    const handleSubmit = (event) => { 
+        const data = new FormData()
+        for (const [key, value] of Object.entries(formData)) {
+            data.append(key, value);
+        }
+
+        axios
+        .post("/members/", data)
+        .then((res) => {alert("File Upload success");})
+        .catch((err) => alert("File Upload Error"));
+    }
+      
 
     return (
         <div>
             <h4 className='mt-5'>Upload New Research</h4>
 
-            {/* <Form onSubmit={handleSubmit}> */}
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Row className="mt-3">
                     <Col sm={10}>
-                        {/* <Form.Group controlId="title" 
-                            value={formData.title}
-                            onChange={e => setFormData({...formData, title: e.target.value})}
-                            > */}
+                        <Form.Group controlId="title" onChange={handleChange} >
                             <Form.Label>IS / Thesis Title</Form.Label>
                             <Form.Control type="text" placeholder="Enter Title" />
-                        {/* </Form.Group> */}
+                        </Form.Group>
                     </Col>
                 </Row>
                 <Row className="mt-3">
                     <Col sm={7}>
-                        {/* <Form.Group controlId="author"
-                            value={formData.author}
-                            onChange={e => setFormData({...formData, author: e.target.value})}
-                            > */}
+                        <Form.Group controlId="author" onChange={handleChange} >
                             <Form.Label>Category : </Form.Label>
-                            {/* <Form.Control type="text" placeholder="Author Name" /> */}
+                            <Form.Control type="text" placeholder="Author Name" />
 
                             <select id="Department">
-                                <option value="" selected>Information Technology</option>
+                                <option value="">Information Technology</option>
                                 <option value="">Science</option>
                                 <option value="">Engineering</option>
                                 <option value="">Architecture</option>
@@ -64,7 +79,7 @@ function Upload() {
                                 <option value="">Other</option>
                             </select>
     
-                        {/* </Form.Group> */}
+                        </Form.Group>
                     </Col>
                     <Col sm={3}>
                         {/* <Form.Group controlId="year"
@@ -118,19 +133,15 @@ function Upload() {
                             <Form.Control type="text" placeholder="Keyword 3" />
                         {/* </Form.Group> */}
                     </Col>
-                    {/* <Col className="mt-5" sm={1}>
+                    <Col className="mt-3" sm={3}>
+                        <Form.Group controlId="file" onChange={handleChangeFile}>
+                            <Form.Label>Upload file</Form.Label>
+                            <Form.Control type="file" />
+                        </Form.Group>
+                    </Col>
+                    <Col className="mt-5" sm={1}>
                         <Button type="submit" className='w-100'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button>
-                    </Col> */}
-
-                    <div className="mt-3">
-                    
-                    <label>Upload file</label>
-                    <input type="file" className="form-control"/>
-                    </div>
-            
-                    <div className="mt-3">
-                        <button>Upload</button>
-                    </div>
+                    </Col>
                 </Row>
             </Form>
             
