@@ -7,7 +7,7 @@ class BaseConfig(object):
     UPLOAD_FOLDER = "C:/test_uploads"
     ALLOWED_EXTENSIONS = ('txt', 'pdf')
 
-    AWS_ACCESS_KEY_ID=''
-    AWS_SECRET_ACCESS_KEY=''
+    AWS_ACCESS_KEY_ID='AKIAVRZ3UCNLB7SUBNO2'
+    AWS_SECRET_ACCESS_KEY='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'
     AWS_DEFAULT_REGION=''
-    AWS_S3_DEFAULT_BUCKET=''
+    AWS_S3_DEFAULT_BUCKET='digital-library'
