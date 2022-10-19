@@ -48,8 +48,8 @@ function Login() {
                     {/* <Col className='mt-3'sm={4}></Col> */}
 
                     <Nav>
-                        {/* <Button type="submit" href="/register" className="button">Create an account</Button> */}
-                        <button>Create an account</button>
+                        <Button type="submit" href="/register" className="button">Create an account</Button>
+                        {/* <button>Create an account</button> */}
                     </Nav>
 
                 </form>
