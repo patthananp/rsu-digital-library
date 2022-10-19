@@ -3,11 +3,12 @@ import {Button, Col, Container, Form, Row, Nav} from 'react-bootstrap';
 import Home from "../Home";
 import Register from "./register";
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
+import './Form.css'
 
 function Login() {
     
         return (
-            <div>
+            <div className="container">
         
                 <form>
                     <Col sm={4}></Col>
@@ -35,11 +36,11 @@ function Login() {
 
                         <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                            <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                            <label className="custom-control-label" htmlFor="customCheck1"> Remember me</label>
                         </div>
                     </div>
 
-                    <Button type="submit" href="/" className="btn btn-dark btn-lg btn-block">Sign in</Button>
+                    <Button type="submit" href="/" className="btn btn-dark btn-lg btn-block mt-3">Sign in</Button>
                     <p className="forgot-password text-right">
                         Forgot <a href="#">password?</a>
                     </p>
@@ -47,7 +48,8 @@ function Login() {
                     {/* <Col className='mt-3'sm={4}></Col> */}
 
                     <Nav>
-                        <Nav.Link href="/register">Register</Nav.Link>
+                        {/* <Button type="submit" href="/register" className="button">Create an account</Button> */}
+                        <button>Create an account</button>
                     </Nav>
 
                 </form>

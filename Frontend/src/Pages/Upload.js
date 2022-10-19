@@ -3,6 +3,7 @@ import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
+import './Form.css'
 
 function Upload() {
     
@@ -55,7 +56,7 @@ function Upload() {
 
             <Form onSubmit={handleSubmit}>
                 <Row className="mt-3">
-                    <Col sm={10}>
+                    <Col sm={12}>
                         <Form.Group controlId="title" onChange={handleChange} >
                             <Form.Label>IS / Thesis Title</Form.Label>
                             <Form.Control type="text" placeholder="Enter Title" />
@@ -63,12 +64,12 @@ function Upload() {
                     </Col>
                 </Row>
                 <Row className="mt-3">
-                    <Col sm={7}>
+                    <Col sm={8}>
                         <Form.Group controlId="author" onChange={handleChange} >
                             <Form.Label>Category : </Form.Label>
-                            <Form.Control type="text" placeholder="Author Name" />
+                            {/* <Form.Control type="text" placeholder="Author Name" /> */}
 
-                            <select id="Department">
+                            <select className='form-select form-select-md mb-3' id="Department">
                                 <option value="">Information Technology</option>
                                 <option value="">Science</option>
                                 <option value="">Engineering</option>
@@ -81,7 +82,7 @@ function Upload() {
     
                         </Form.Group>
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={4}>
                         {/* <Form.Group controlId="year"
                             value={formData.year}
                             onChange={e => setFormData({...formData, year: e.target.value})}> */}
@@ -91,7 +92,7 @@ function Upload() {
                     </Col>
                 </Row>
                 <Row className="mt-3">
-                    <Col sm={7}>
+                    <Col sm={8}>
                         {/* <Form.Group controlId="supervisor"
                             value={formData.supervisor}
                             onChange={e => setFormData({...formData, supervisor: e.target.value})}> */}
@@ -99,7 +100,7 @@ function Upload() {
                             <Form.Control type="text" placeholder="Superviser Name" />
                         {/* </Form.Group> */}
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={4}>
                         {/* <Form.Group controlId="page"
                             value={formData.page}
                             onChange={e => setFormData({...formData, page: e.target.value})}> */}
@@ -109,7 +110,7 @@ function Upload() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col className="mt-3" sm={3}>
+                    <Col className="mt-3" sm={4}>
                         {/* <Form.Group controlId="keyword1"
                             value={formData.keyword1}
                             onChange={e => setFormData({...formData, keyword1: e.target.value})}> */}
@@ -117,7 +118,7 @@ function Upload() {
                             <Form.Control type="text" placeholder="Keyword 1" />
                         {/* </Form.Group> */}
                     </Col>
-                    <Col className="mt-3" sm={3}>
+                    <Col className="mt-3" sm={4}>
                         {/* <Form.Group controlId="keyword2"
                             value={formData.keyword2}
                             onChange={e => setFormData({...formData, keyword2: e.target.value})}> */}
@@ -125,7 +126,7 @@ function Upload() {
                             <Form.Control type="text" placeholder="Keyword 2" />
                         {/* </Form.Group> */}
                     </Col>
-                    <Col className="mt-3" sm={3}>
+                    <Col className="mt-3" sm={4}>
                         {/* <Form.Group controlId="keyword3"
                             value={formData.keyword3}
                             onChange={e => setFormData({...formData, keyword3: e.target.value})}> */}
@@ -133,14 +134,18 @@ function Upload() {
                             <Form.Control type="text" placeholder="Keyword 3" />
                         {/* </Form.Group> */}
                     </Col>
-                    <Col className="mt-3" sm={3}>
+                <Row>
+                    <Col className="mt-3" sm={12}>
                         <Form.Group controlId="file" onChange={handleChangeFile}>
                             <Form.Label>Upload file</Form.Label>
                             <Form.Control type="file" />
                         </Form.Group>
                     </Col>
-                    <Col className="mt-5" sm={1}>
-                        <Button type="submit" className='w-100'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button>
+                </Row>
+                </Row>
+                <Row>
+                    <Col className="mt-3" sm={3}>
+                        <Button type="submit" href="/Upload" className="btn btn-dark btn-lg btn-block">Upload</Button>
                     </Col>
                 </Row>
             </Form>

@@ -52,7 +52,7 @@ function Register(){
 
             <div className="mt-3">
                 <label for="Name Title">Choose a Name Title : </label>
-                <select id="Name Title" 
+                <select className='form-select form-select-md mb-3' id="Name Title" 
                     value={formData.prefix} 
                     onChange={e => setFormData({...formData, prefix: e.target.value})}
                 >
@@ -112,7 +112,7 @@ function Register(){
                     onChange={e => setFormData({...formData, password: e.target.value})} />
             </div>
 
-            <Button type="submit" className="btn btn-dark btn-lg btn-block">Submit</Button>
+            <Button type="submit" className="btn btn-dark btn-lg btn-block mt-3">Submit</Button>
          
             </Col>
 

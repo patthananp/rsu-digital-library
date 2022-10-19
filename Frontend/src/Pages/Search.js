@@ -61,7 +61,7 @@ function Search() {
 
     return (
         <div>
-            <h1>Advanced Search</h1>
+            <h1 className="mt-3">Advanced Search</h1>
             <Form onSubmit={handleSubmit}>
                 <Row className="mt-3">
                     <Col sm={10}>

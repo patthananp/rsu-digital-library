@@ -29,9 +29,9 @@ function PicSlide() {
   // }
   return (
     <div className="App">
-        <a href="https://www2.rsu.ac.th/Home" target="_blank" rel="noreferrer">
+        {/* <a href="https://www2.rsu.ac.th/Home" target="_blank" rel="noreferrer">
           <img src={"https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg"} alt="" />
-        </a>
+        </a> */}
       {/* <div style={{ textAlign: "center" }}>
         <h2>React Carousel Minimal</h2>
         <p>Easy to use, responsive and customizable carousel component for React Projects.</p>
