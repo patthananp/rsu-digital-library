@@ -1,33 +1,36 @@
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import Upload from './Upload';
+import axios from 'axios';
 
 
 function CategoryList() {
     
     const [items, setItems] = useState([])
 
-    // function listCategoryTypes() {
-    //    fetch(`/category-types`,{
-    //         'method':'GET',
-    //         headers : {
-    //             'Content-Type':'application/json'
-    //         }
-    //     }).then(response => {
-    //         return response.json()
-    //     }).then(data => {
-    //         if (data.meta?.response_code == 1000) {
-    //             setItems(data.data)
-    //         }
-    //     })
-    // }
+    useEffect(() => {
+        listResearches()
+    })
 
-    console.log('before')
-    // listCategoryTypes()
-    console.log('after')
+    function listResearches() {
+        axios
+        .get("/api/researches")
+        .then((res) => {
+            // if (res.status != 200) {
+            //     alert(res.status)
+            // }
+            let response_data = res.data
+            // if (response_data['meta']['response_code'] != 1000) {
+            //     alert(response_data['meta']['response_desc'])
+            // }
+            let data = response_data.data
+            setItems(data)
+        })
+        .catch((err) => alert("Error"));
+    }
 
     return (
         <div>

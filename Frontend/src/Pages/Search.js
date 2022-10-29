@@ -22,7 +22,7 @@ function Search() {
 
     let retrieveThesis = () => {
         console.log()
-        return fetch(`/researches`,{
+        return fetch(`/api/researches`,{
             'method':'GET',
             headers : {
                 'Content-Type':'application/json'
@@ -34,7 +34,7 @@ function Search() {
 
     let listBooks = () => {
         console.log()
-        return fetch(`/researches`,{
+        return fetch(`/api/researches`,{
             'method':'GET',
             headers : {
                 'Content-Type':'application/json'

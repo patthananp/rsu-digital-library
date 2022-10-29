@@ -45,7 +45,7 @@ function Upload() {
         }
 
         axios
-        .post("/researches/", data)
+        .post("/api/researches", data)
         .then((res) => {alert("File Upload success");})
         .catch((err) => alert("File Upload Error"));
     }
