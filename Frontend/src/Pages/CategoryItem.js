@@ -5,9 +5,10 @@ function CategoryItem(props) {
     
     return (
         <tr>
-            <td>{item.name}</td>
-            <td>{item.description}</td>
-            <td>{item.id}</td>
+            <td>{item.title}</td>
+            <td>{item.pages}</td>
+            <td>{item.year}</td>
+            <td> [A] [B]</td>
         </tr>
     )
 }

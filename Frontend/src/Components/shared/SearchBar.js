@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios';
 
 function SearchBar () {
+
+    const [selectedFile, setSelectedFile] = useState()
+
+    const handleSubmit = (event) => { 
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+        formData.append("hello", 'hello');
+
+        axios
+        .post("/members/", formData)
+        .then((res) => {alert("File Upload success");})
+        .catch((err) => alert("File Upload Error"));
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
+                <Col className='mt-2'sm={12}>
+                    <Form.Group controlId="formFile" 
+                            value={selectedFile}
+                            onChange={e => setSelectedFile(e.target.files[0])}>
+                        <Form.Label>File</Form.Label>
+                        <Form.Control type="file" placeholder="upload file" />
+                    </Form.Group>
+                </Col>
                 <Col className='mt-2'sm={7}>
                     <Form.Group controlId="formBasicEmail" >
                         <Form.Label>Keyword</Form.Label>
