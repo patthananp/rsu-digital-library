@@ -17,21 +17,34 @@ function Login() {
 
                     <h3>Login</h3>
 
-                    {/* <div className="form-group"> */}
+                    {/* <div className="group mt-5">
+                        <input required="" type="text" className="input" />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+                        <label>Email</label>
+                    </div>
+
+                    <div className="group mt-5">
+                        <input required="" type="text" className="input" />
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+                        <label>Password</label>
+                    </div> */}
+                
                     <div className="mt-3">
                     
                         <label>Email</label>
                         <input type="email" className="form-control" placeholder="Enter email" />
                     </div>
 
-                    {/* <div className="form-group"> */}
+                    
                     <div className="mt-3">
 
                         <label>Password</label>
                         <input type="password" className="form-control" placeholder="Enter password" />
                     </div>
 
-                    {/* <div className="form-group"> */}
+                   
                     <div className="mt-3">
 
                         <div className="custom-control custom-checkbox">
@@ -45,11 +58,11 @@ function Login() {
                         Forgot <a href="#">password?</a>
                     </p>
                     </Col>
-                    {/* <Col className='mt-3'sm={4}></Col> */}
+                   
 
                     <Nav>
                         <Button type="submit" href="/register" className="button">Create an account</Button>
-                        {/* <button>Create an account</button> */}
+                        
                     </Nav>
 
                 </form>
