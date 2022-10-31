@@ -14,7 +14,7 @@ function CategoryList() {
 
     useEffect(() => {
         listResearches()
-    })
+    }, [])
 
     function listResearches() {
         axios
