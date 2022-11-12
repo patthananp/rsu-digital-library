@@ -7,7 +7,6 @@ function PicSlide() {
  const data = [
     {
       image: "https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg",
-      // caption: "San Francisco"
     },
     {
       image: "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
@@ -19,6 +18,7 @@ function PicSlide() {
     }
   ];
 
+
   // const captionStyle = {
   //   fontSize: '2em',
   //   fontWeight: 'bold',
@@ -29,6 +29,7 @@ function PicSlide() {
   // }
   return (
     <div className="App">
+
         {/* <a href="https://www2.rsu.ac.th/Home" target="_blank" rel="noreferrer">
           <img src={"https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg"} alt="" />
         </a> */}
