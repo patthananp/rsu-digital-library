@@ -9,7 +9,7 @@ from app.common.s3utils import S3utils
 
 researches_bp = Blueprint('researches', __name__, url_prefix='/researches')
 
-@researches_bp.route('/')
+@researches_bp.route('/', methods = ['GET'])
 def list():
     try:
         researches = Research.query.all()
@@ -21,14 +21,14 @@ def list():
         response = Response.error(e)
     return jsonify(response), 200
 
-@researches_bp.route('/<id>')
+@researches_bp.route('/<id>', methods = ['GET'])
 def retrieve(id):
     try:
         research = Research.query.filter_by(id=id).first()
         print(research)
         if research:
             research = research.as_dict()
-        response = Response.success(researches)
+        response = Response.success(research)
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
@@ -64,36 +64,39 @@ def create():
 
 @researches_bp.route('/<id>', methods = ['PUT'])
 def update(id):
-    try: 
-        request_data = request.json
-        research = Research.query.filter_by(id = id).first()
+    try:
+        files = request.files
+        form_data = request.form
+        # TODO Update new file
+        research = Research.query.filter_by(id=id).first()
         if research:
-            if  request_data.get('title'):
-                research.prefix = request_data.get('title')
+            if form_data.get('title'):
+                research.title = form_data.get('title')
 
-            if  request_data.get('author_id'):
-                research.firstname = request_data.get('author_id')
+            if form_data.get('author_id'):
+                research.author_id = form_data.get('author_id')
 
-            if  request_data.get('supervisor_id'):
-                research.lastname = request_data.get('supervisor_id')
+            if form_data.get('supervisor_id'):
+                research.supervisor_id = form_data.get('supervisor_id')
             
-            if  request_data.get('year'):
-                research.email = request_data.get('year')
+            if form_data.get('year'):
+                research.year = form_data.get('year')
 
-            if  request_data.get('pages'):
-                research.password = request_data.get('pages')
+            if form_data.get('pages'):
+                research.pages = form_data.get('pages')
 
-            if  request_data.get('research_type_id'):
-                research.password = request_data.get('research_type_id')
+            if form_data.get('research_type_id'):
+                research.research_type_id = form_data.get('research_type_id')
         else:
-            raise Exception(f'user id = {id} not found.')
+            raise Exception(f're id = {id} not found.')
         
         db.session.commit()
         response = Response.success(research.as_dict())
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return jsonify(response)
+    return jsonify(response), 200
+
  
 @researches_bp.route('/<id>', methods = ['DELETE'])
 def delete(id):

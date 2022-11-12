@@ -12,14 +12,13 @@ import Register from "../../Pages/register";
 import Category from "../../Pages/category";
 import CategoryList from "../../Pages/Manage";
 import Login from "../../Pages/login";
-import Upload from '../../Pages/Upload';
+import Upload from '../../Pages/ResearchForm';
 
 function MainLayout() {
   return (
       <div>
             <Header/>
             <Container>
-            
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>} />
@@ -30,7 +29,6 @@ function MainLayout() {
                         <Route path="/upload" element={<Upload/>} />
                     </Routes>
                 </Router>
-
             </Container>
             <Footer/>
       </div>
