@@ -13,11 +13,13 @@ function Footer() {
             <Container>
                 <Row>
                     <Col sm={4}>
-                        <Nav>
-                            <Nav.Link href="#1">link 1</Nav.Link>
-                            <Nav.Link href="#2">link 2</Nav.Link>
-                            <Nav.Link href="#3">link 3</Nav.Link>
-                        </Nav>
+                        <dl>
+                            <dt><Nav.Link href="/">Home</Nav.Link></dt>
+                            <dt><Nav.Link href="#2">Privacy Policy</Nav.Link></dt>
+                            <dt><Nav.Link href="#3">Terms of Service</Nav.Link></dt>
+                            <dt><Nav.Link href="#3">Question</Nav.Link></dt>
+
+                        </dl>
                     </Col>
                     <Col sm={8}>
                     <div class="social-container">
@@ -37,7 +39,7 @@ function Footer() {
                     </Col>
                 </Row>
                 <Row>
-                    Copyright @2022
+                    <p>Copyright &copy; 2022</p>
                 </Row>
             </Container>
         </div>

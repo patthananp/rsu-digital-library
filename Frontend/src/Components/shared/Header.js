@@ -18,7 +18,7 @@ function Header() {
                 </Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link href="/search">Search</Nav.Link>
+                        <Nav.Link href="/search">Advance Search</Nav.Link>
                         {/* <Nav.Link href="/about">About</Nav.Link> */}
                         <Nav.Link href="/manage">Management</Nav.Link>
                     </Nav>
