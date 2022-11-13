@@ -2,7 +2,6 @@ import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import Upload from './ResearchForm';
 import axios from 'axios';

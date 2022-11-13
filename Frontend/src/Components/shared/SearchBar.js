@@ -21,14 +21,7 @@ function SearchBar () {
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
-                <Col className='mt-2'sm={12}>
-                    <Form.Group controlId="formFile" 
-                            value={selectedFile}
-                            onChange={e => setSelectedFile(e.target.files[0])}>
-                        <Form.Label>File</Form.Label>
-                        <Form.Control type="file" placeholder="upload file" />
-                    </Form.Group>
-                </Col>
+        
                 <Col className='mt-2'sm={7}>
                     <Form.Group controlId="formBasicEmail" >
                         <Form.Label>Keyword</Form.Label>
