@@ -1,13 +1,14 @@
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
 import './Form.css'
 
 function ResearchForm(props) {
     const location = useLocation()
+    const navigate = useNavigate();
     const [formData, updateFormData] = useState(location.state || {})
     const isNew = formData.id == null
 
@@ -26,23 +27,34 @@ function ResearchForm(props) {
         });
     };
 
-    const handleSubmit = (event) => { 
+    const handleSubmit = async (event) => { 
+        event.preventDefault();
         const data = new FormData()
         for (const [key, value] of Object.entries(formData)) {
             data.append(key, value);
         }
 
-        if (isNew) {
-            axios
-            .post(`/api/researches`, data)
-            .then((res) => {alert("Create New Research Success");})
-            .catch((err) => alert("Create New Research Error"));
-        } else {
-            axios
-            .put(`/api/researches/${formData.id}`, data)
-            .then((res) => {alert("Update Research Success");})
-            .catch((err) => alert("Update Research Error"));
+        try {
+            if (isNew) {
+                const res = await axios.post(`/api/researches`, data);
+                console.log(res);
+                // .then((res) => {
+                //     // alert("Create New Research Success");
+                // })
+                // .catch((err) => alert("Create New Research Error"));
+            } else {
+                const res = await axios.put(`/api/researches/${formData.id}`, data);
+                console.log(res);
+                // .then((res) => {
+                //     // alert("Update Research Success");
+                // })
+                // .catch((err) => alert("Update Research Error"));
+            }
+        } catch (err) {
+            console.log(err)
         }
+        
+        navigate('/manage')
     }
       
 

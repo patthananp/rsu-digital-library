@@ -14,10 +14,10 @@ const SearchResult =(props) => {
             </div>
         
           );
-    } else {
-        return (
-            <h1>----NO DATA----</h1>
-        )
+    // } else {
+    //     return (
+    //         <h1>----NO DATA----</h1>
+    //     )
     }
     
   }

@@ -13,7 +13,9 @@ function CategoryItem(props) {
         // CALL DELETE FUNCTION WITH CUSTOMERID
         axios
         .delete(`/api/researches/${researchId}`)
-        .then((res) => {alert("Delete Research Success");})
+        .then((res) => {
+            // alert("Delete Research Success");
+        })
         .catch((err) => alert("Delete Research Error"));
     }
     
