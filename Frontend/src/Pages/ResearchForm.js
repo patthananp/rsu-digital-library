@@ -1,13 +1,14 @@
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
 import './Form.css'
 
 function ResearchForm(props) {
     const location = useLocation()
+    const navigate = useNavigate();
     const [formData, updateFormData] = useState(location.state || {})
     const isNew = formData.id == null
 
@@ -27,6 +28,7 @@ function ResearchForm(props) {
     };
 
     const handleSubmit = (event) => { 
+        console.log('handleSubmit')
         const data = new FormData()
         for (const [key, value] of Object.entries(formData)) {
             data.append(key, value);
@@ -47,6 +49,8 @@ function ResearchForm(props) {
             })
             .catch((err) => alert("Update Research Error"));
         }
+       
+        navigate('/manage')
     }
       
 
