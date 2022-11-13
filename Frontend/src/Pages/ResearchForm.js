@@ -35,12 +35,16 @@ function ResearchForm(props) {
         if (isNew) {
             axios
             .post(`/api/researches`, data)
-            .then((res) => {alert("Create New Research Success");})
+            .then((res) => {
+                // alert("Create New Research Success");
+            })
             .catch((err) => alert("Create New Research Error"));
         } else {
             axios
             .put(`/api/researches/${formData.id}`, data)
-            .then((res) => {alert("Update Research Success");})
+            .then((res) => {
+                // alert("Update Research Success");
+            })
             .catch((err) => alert("Update Research Error"));
         }
     }
