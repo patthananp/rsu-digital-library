@@ -1,11 +1,12 @@
 import React, { useState, useId } from "react";
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import {Button, Col, Form, Row} from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Register(){
-
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         prefix: '',
         firstname: '',
@@ -20,12 +21,13 @@ function Register(){
         console.log(formData);
     };
     
-    const handleSubmit = (event) => { 
+    const handleSubmit = async (event) => { 
         event.preventDefault()
         console.log(formData)
-        createUser().then((data, err) => {
-            console.log(data)
-        })
+        const data = await createUser()
+        console.log(data)
+
+        navigate('/login')
 
     }
 
