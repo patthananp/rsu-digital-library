@@ -17,7 +17,7 @@ outline: none;
 
 button:hover {
 background-color: #23c483;
-box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+box-shadow: 0px 15px 20px rgba(236, 29, 229, 0.4);
 color: #fff;
 transform: translateY(-7px);
 }
@@ -30,6 +30,8 @@ transform: translateY(-1px);
 height: 100%;
 align-content: center;
 } 
+
+
 /* From uiverse.io by @Maximinodotpy */
 /* From uiverse.io by @G4b413l */
 /* .group {

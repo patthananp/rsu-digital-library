@@ -27,7 +27,7 @@ function CategoryItem(props) {
             <td>{item.download}</td>
             <td>
                 <Link to="/ResearchForm" state={item}>
-                    <Button>
+                    <Button color='black'>
                         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
                     </Button>
                 </Link>          
