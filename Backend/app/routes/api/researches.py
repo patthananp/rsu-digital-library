@@ -34,6 +34,22 @@ def retrieve(id):
         response = Response.error(e)
     return json.dumps(research)
 
+@researches_bp.route('/<id>/download', methods = ['GET'])
+def download(id):
+    try:
+        research = Research.query.filter_by(id=id).first()
+        print(research)
+        if research:
+            research = research.as_dict()
+            
+            s3utils = S3utils()
+            s3utils.download_fileobj(research.filename)
+        response = Response.success(research)
+    except Exception as e:
+        print(f'Exception: {e}')
+        response = Response.error(e)
+    return json.dumps(research)
+
 def allowed_file(filename):
     print(f"current_app.config[ALLOWED_EXTENSIONS]: {current_app.config['ALLOWED_EXTENSIONS']}")
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']

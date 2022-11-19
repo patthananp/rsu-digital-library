@@ -2,7 +2,7 @@ from app import db
 
 class Category_type(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=True)
 
     def as_dict(self):

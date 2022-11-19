@@ -4,7 +4,7 @@ import {Navbar, Nav, Container} from 'react-bootstrap';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import SearchResult from "../Components/shared/SearchResult";
+import SearchResult from "../Components/SearchResult";
 
 function Search() {
 

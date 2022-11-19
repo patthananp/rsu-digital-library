@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchBar from './Components/shared/SearchBar';
+import SearchBar from './Components/SearchBar';
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
 
 import {Container, Row, Col, Nav} from 'react-bootstrap';
 import Search from './Pages/Search';
 
-import PicSlide from './Components/layouts/Slide';
+import PicSlide from './Components/Slide';
 
 
 function Home() {
