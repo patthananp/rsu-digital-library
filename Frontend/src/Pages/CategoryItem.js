@@ -24,8 +24,9 @@ function CategoryItem(props) {
             <td>{item.title}</td> 
             <td>{item.pages}</td>
             <td>{item.year}</td>
+            <td>{item.download}</td>
             <td>
-                <Link to="/Upload" state={item}>
+                <Link to="/ResearchForm" state={item}>
                     <Button>
                         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
                     </Button>

@@ -51,6 +51,7 @@ function CategoryList() {
                         <th>Name</th>
                         <th>Keyword</th>
                         <th>Year</th>
+                        <th>Download</th>
                         <th>Action</th>
                     </tr>
                 </thead>

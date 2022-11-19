@@ -94,31 +94,32 @@ function ResearchForm(props) {
                             <Form.Control type="text" placeholder="Superviser Name" />
                         </Form.Group>
                     </Col> */}
-                    <Col sm={4}>
+                    <Col className="mt-3" sm={4}>
                         <Form.Group controlId="year" onChange={handleChange}>
                             <Form.Label>Year</Form.Label>
                             <Form.Control defaultValue={formData.year} type="number" placeholder="Year" />
                         </Form.Group>
                     </Col>
-                    <Col sm={4}>
+                    <Col className="mt-3" sm={4}>
                         <Form.Group controlId="pages" onChange={handleChange}>
                             <Form.Label>Page(s)</Form.Label>
                             <Form.Control defaultValue={formData.pages} type="number" placeholder="Number" />
                         </Form.Group>
                     </Col>
+                    <Col className="mt-3" sm={4}>
+                        <Form.Group controlId="keyword" onChange={handleChange}>
+                            <Form.Label>Keyword</Form.Label>
+                            <Form.Control defaultValue={formData.keyword} type="text" placeholder="Keyword" />
+                        </Form.Group>
+                    </Col>
+                    <Col className="mt-3" sm={12}>
+                        <Form.Group controlId="abstraction" onChange={handleChange}>
+                            <Form.Label>Abstraction</Form.Label>
+                            <Form.Control as="textarea" rows={10} defaultValue={formData.abstract} placeholder="Abstraction" />
+                        </Form.Group>
+                    </Col>
+    
                     {/* <Col className="mt-3" sm={4}>
-                        <Form.Group controlId="keyword1" onChange={handleChange}>
-                            <Form.Label>Keyword 1</Form.Label>
-                            <Form.Control type="text" placeholder="Keyword 1" />
-                        </Form.Group>
-                    </Col>
-                    <Col className="mt-3" sm={4}>
-                        <Form.Group controlId="keyword2" onChange={handleChange}>
-                            <Form.Label>Keyword 2</Form.Label>
-                            <Form.Control type="text" placeholder="Keyword 2" />
-                        </Form.Group>
-                    </Col>
-                    <Col className="mt-3" sm={4}>
                         <Form.Group controlId="keyword3" onChange={handleChange}>
                             <Form.Label>Keyword 3</Form.Label>
                             <Form.Control type="text" placeholder="Keyword 3" />
