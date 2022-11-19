@@ -1,6 +1,6 @@
 import json
 import os
-from flask import current_app, Blueprint, request, jsonify
+from flask import current_app, Blueprint, request, jsonify, send_file
 from app import db
 
 from app.models.research import Research
@@ -40,33 +40,34 @@ def download(id):
         research = Research.query.filter_by(id=id).first()
         print(research)
         if research:
-            research = research.as_dict()
-            
             s3utils = S3utils()
-            s3utils.download_fileobj(research.filename)
-        response = Response.success(research)
+            download_file_path = s3utils.download_file(research.filename)
+            print(download_file_path)
+            response = send_file(download_file_path, as_attachment=True)
+        # response = Response.success(research.as_dict())
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return json.dumps(research)
+    return response
 
-def allowed_file(filename):
+def allowed_file(file_name):
     print(f"current_app.config[ALLOWED_EXTENSIONS]: {current_app.config['ALLOWED_EXTENSIONS']}")
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
+    return '.' in file_name and file_name.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
 
 @researches_bp.route('/', methods = ['POST'])
 def create():
-    try:    
+    try: 
+        print('post')
         files = request.files
         form_data = request.form
         file = request.files['file']
         if file and allowed_file(file.filename):
-            filename = file.filename
-            filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-            file.save(filepath)
+            file_name = file.filename
+            file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], file_name)
+            file.save(file_path)
             
             s3utils = S3utils()
-            s3utils.upload_file(filepath)
+            s3utils.upload_file(file_path)
             
         new_research = Research(**form_data)
         db.session.add(new_research)

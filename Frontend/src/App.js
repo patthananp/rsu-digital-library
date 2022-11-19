@@ -32,7 +32,7 @@ function App() {
             <Route path="/manage" element={<CategoryList/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>} />
-            <Route path="/upload" element={<Upload/>} />
+            <Route path="/researchForm" element={<Upload/>} />
           </Routes>
         </Router>
       </Container>

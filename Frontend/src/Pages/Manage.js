@@ -41,7 +41,7 @@ function CategoryList() {
                 <Col sm={2}></Col>
                 <Col sm={2}></Col>
                 <Col className="mt-3" sm={4}>
-                    <Button type="submit" href="/Upload" className="btn btn-dark btn-lg btn-block">Upload New Research</Button>
+                    <Button type="submit" href="/researchForm" className="btn btn-dark btn-lg btn-block">Upload New Research</Button>
                 </Col>
             </Row>
             {/* <h4 className='mt-5'>My Research</h4> */}

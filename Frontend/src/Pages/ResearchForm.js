@@ -1,7 +1,6 @@
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
-import { Chips } from 'primereact/chips';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
@@ -12,19 +11,6 @@ function ResearchForm(props) {
     const navigate = useNavigate();
     const [formData, updateFormData] = useState(location.state || {})
     const isNew = formData.id == null
-
-    const [values1, setValues1] = useState([]);
-    const [values2, setValues2] = useState([]);
-    const [values3, setValues3] = useState([]);
-
-    const customChip = (item) => {
-        return (
-            <div>f
-                <span>{item} - (active) </span>
-                <i className="pi pi-user-plus" style={{ fontSize: '14px' }}></i>
-            </div>
-        );
-    }
 
     const handleChange = (e) => {
         updateFormData({
@@ -121,18 +107,18 @@ function ResearchForm(props) {
                         </Form.Group>
                     </Col>
                     <Col className="mt-3" sm={12}>
-                        <Form.Group controlId="keyword" onChange={handleChange}>
-                            <Form.Label>Keyword</Form.Label>
+                        <Form.Group controlId="keywords" onChange={handleChange}>
+                            <Form.Label>Keywords</Form.Label>
                             {/* <div className="card p-fluid"> */}
-                                <Form.Control as="textarea" rows={3} defaultValue={formData.keyword} type="text" placeholder="Keyword" />
+                                <Form.Control as="textarea" rows={3} defaultValue={formData.keywords} type="text" placeholder="Keyword" />
                                 {/* <Chips value={values1} onChange={(e) => setValues1(e.value)} /> */}
                             {/* </div> */}
                         </Form.Group>
                     </Col>
                     <Col className="mt-3" sm={12}>
-                        <Form.Group controlId="abstraction" onChange={handleChange}>
-                            <Form.Label>Abstraction</Form.Label>
-                            <Form.Control as="textarea" rows={10} defaultValue={formData.abstract} placeholder="Abstraction" />
+                        <Form.Group controlId="abstract" onChange={handleChange}>
+                            <Form.Label>Abstract</Form.Label>
+                            <Form.Control as="textarea" rows={10} defaultValue={formData.abstract} placeholder="Abstract" />
                         </Form.Group>
                     </Col>
     
