@@ -1,6 +1,7 @@
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import CategoryItem from "./CategoryItem"
 import React, { useState } from 'react'
+import { Chips } from 'primereact/chips';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
@@ -11,6 +12,19 @@ function ResearchForm(props) {
     const navigate = useNavigate();
     const [formData, updateFormData] = useState(location.state || {})
     const isNew = formData.id == null
+
+    const [values1, setValues1] = useState([]);
+    const [values2, setValues2] = useState([]);
+    const [values3, setValues3] = useState([]);
+
+    const customChip = (item) => {
+        return (
+            <div>f
+                <span>{item} - (active) </span>
+                <i className="pi pi-user-plus" style={{ fontSize: '14px' }}></i>
+            </div>
+        );
+    }
 
     const handleChange = (e) => {
         updateFormData({
@@ -94,22 +108,25 @@ function ResearchForm(props) {
                             <Form.Control type="text" placeholder="Superviser Name" />
                         </Form.Group>
                     </Col> */}
-                    <Col className="mt-3" sm={4}>
+                    <Col className="mt-3" sm={6}>
                         <Form.Group controlId="year" onChange={handleChange}>
                             <Form.Label>Year</Form.Label>
                             <Form.Control defaultValue={formData.year} type="number" placeholder="Year" />
                         </Form.Group>
                     </Col>
-                    <Col className="mt-3" sm={4}>
+                    <Col className="mt-3" sm={6}>
                         <Form.Group controlId="pages" onChange={handleChange}>
                             <Form.Label>Page(s)</Form.Label>
                             <Form.Control defaultValue={formData.pages} type="number" placeholder="Number" />
                         </Form.Group>
                     </Col>
-                    <Col className="mt-3" sm={4}>
+                    <Col className="mt-3" sm={12}>
                         <Form.Group controlId="keyword" onChange={handleChange}>
                             <Form.Label>Keyword</Form.Label>
-                            <Form.Control defaultValue={formData.keyword} type="text" placeholder="Keyword" />
+                            {/* <div className="card p-fluid"> */}
+                                <Form.Control as="textarea" rows={3} defaultValue={formData.keyword} type="text" placeholder="Keyword" />
+                                {/* <Chips value={values1} onChange={(e) => setValues1(e.value)} /> */}
+                            {/* </div> */}
                         </Form.Group>
                     </Col>
                     <Col className="mt-3" sm={12}>
@@ -136,6 +153,7 @@ function ResearchForm(props) {
                     </Col>
                 </Row>
             </Form>
+        
         </div>
     )
 }
