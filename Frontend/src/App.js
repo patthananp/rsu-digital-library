@@ -20,21 +20,30 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fas)
 
+// function setLoggedInAs(loggedInAs) {
+//   sessionStorage.setItem('loggedInAs', loggedInAs);
+// }
+
+// function getLoggedInAs() {
+//   loggedInAs = sessionStorage.getItem('loggedInAs');
+//   return loggedInAs
+// }
+
 function App() {
+  const [loggedInAs, setLoggedInAs] = useState()
+
   return (
     <div>
-      <Header/>
+      <Header />
       <Container>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/search" element={<Search/>} />
-            <Route path="/manage" element={<CategoryList/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/researchForm" element={<Upload/>} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/search" element={<Search/>} />
+          <Route path="/manage" element={<CategoryList/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/researchForm" element={<Upload/>} />
+        </Routes>
       </Container>
       <Footer/>
     </div>

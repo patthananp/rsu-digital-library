@@ -6,7 +6,7 @@ import { useNavigate} from "react-router-dom";
 import './Form.css'
 import axios from "axios";
 
-function Login() {
+function Login({setLoggedInAs}) {
 
     const navigate = useNavigate();
         
@@ -18,16 +18,15 @@ function Login() {
         const password = event.target.password.value
         
         const response = await axios.post('/api/users/login', {'email':email, 'password':password})
-        console.log(response)
-        // if (response.status == 200 && response.data.meta.response_code == 1000) {
-        //     console.log(response.data.data)
-        //     setLoggedInAs(response.data.data.name)
-        // } else {
-        //     alert(response.data.meta.response_desc)
-        // }
-
-        navigate("/");
-        window.location.reload();
+        if (response.status == 200 && response.data.meta.response_code == 1000) {
+            console.log(response.data.data)
+            // setLoggedInAs(response.data.data.firstname)
+            localStorage.setItem('loggedInAs', JSON.stringify(response.data.data))
+            navigate("/");
+            window.location.reload();
+        } else {
+            alert(response.data.meta.response_desc)
+        }
     }
 
     return (
