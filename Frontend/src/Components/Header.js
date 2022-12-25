@@ -1,10 +1,31 @@
 import React from 'react';
-import {BrowserRouter as Router,Routes, Route, Link, NavLink} from "react-router-dom";
+import {BrowserRouter as Router,Routes, Route, Link, NavLink, useNavigate} from "react-router-dom";
 
-import {Navbar, Nav, Container} from 'react-bootstrap';
+import {Navbar, Nav, Container, Button} from 'react-bootstrap';
 
 function Header() {
-  return (
+    const navigate = useNavigate();
+
+    const loggedInAs = localStorage.getItem('loggedInAs');
+
+    const handleLogoutClick = () => {
+        localStorage.removeItem('loggedInAs');
+        window.location.reload();
+    }
+
+    const handleLoginClick = () => {
+        navigate('/login');
+        window.location.reload();
+    }
+
+    let button
+    if (loggedInAs) {
+        button = <Button onClick={handleLogoutClick}>Logout</Button>
+    } else {
+        button = <Button onClick={handleLoginClick}>Login</Button>
+    }
+
+    return (
         <Navbar sticky="top" bg="light">
             <Container>
                 <Navbar.Brand href="/">
@@ -24,12 +45,14 @@ function Header() {
                     </Nav>
 
                     <Navbar.Text>
-                        Signed in as: <a href="#login">Patthanan</a>
+                        {/* Signed in as: <a href="#login">Patthanan</a> */}
+                        Signed in as: <a href="#login">{loggedInAs ? JSON.parse(loggedInAs).firstname : 'Guest'}</a>
                     </Navbar.Text>
                     
-                    <Nav>
+                    {button}    
+                    {/* <Nav>
                         <Nav.Link href="/login">Log out</Nav.Link>
-                    </Nav>
+                    </Nav> */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
