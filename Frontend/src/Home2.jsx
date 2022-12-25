@@ -4,7 +4,6 @@ import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
 import {Container, Row, Col, Nav} from 'react-bootstrap';
 import Search from './Pages/Search';
 import './Home2.css'
-import Header2 from './Components/Header2';
 
 
 function Home2() {

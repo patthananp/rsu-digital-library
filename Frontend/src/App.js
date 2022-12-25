@@ -18,7 +18,6 @@ import Upload from './Pages/ResearchForm';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import Header2 from './Components/Header2';
 
 library.add(fas)
 

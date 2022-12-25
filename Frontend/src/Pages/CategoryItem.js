@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 
 
 function CategoryItem(props) {
+    // const navigate = useNavigate()
+
     let item = props
     console.log(item)
 
@@ -16,6 +18,7 @@ function CategoryItem(props) {
         axios
         .delete(`/api/researches/${researchId}`)
         .then((res) => {
+            window.location.reload()
             // alert("Delete Research Success");
         })
         .catch((err) => alert("Delete Research Error"));
