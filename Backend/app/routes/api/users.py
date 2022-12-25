@@ -96,6 +96,28 @@ def update(id):
 #     }
 
 
+@users_bp.route('/login', methods = ['POST'])
+def login():
+    try:
+        request_data = request.json
+        email = request_data.get('email')
+        password = request_data.get('password')
+        # Check existing user
+        user = User.query.filter_by(email=email).first()
+        # if existing
+        if user:
+            # hashing password
+            if ph.verify(user.password, password):
+                response = Response.success(user.as_dict())
+            else:
+                raise Exception('Invalid username or password')
+        else:
+            raise Exception('Invalid username or password')
+    except Exception as e:
+        response = Response.error(e)
+    print(response)
+    return response
+
 @users_bp.route('/register', methods = ['POST'])
 def register():
     try:
@@ -107,15 +129,17 @@ def register():
         if exists_user:
             raise Exception('email already registered')
         # hashing password
+        print(request_data.get('password'))
         hashed_password = ph.hash(request_data.get('password'))
+        print(hashed_password)
+        
         request_data['password'] = hashed_password
         # save to database
         new_user = User(**request_data)
         db.session.add(new_user)
         db.session.commit()
         # TODO send confirmation email
-        token = generate_confirmation_token(email)
-        print(token)
+        # token = generate_confirmation_token(email)
         response = Response.success(new_user.as_dict())
     except Exception as e:
         print(f'Exception: {e}')
