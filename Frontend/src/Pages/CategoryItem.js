@@ -4,6 +4,8 @@ import {Table, Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 function CategoryItem(props) {
     let item = props
@@ -40,6 +42,28 @@ function CategoryItem(props) {
         })
         .catch((err) => alert("Delete Research Error"));
     }
+
+    function confirmDelete(researchId) {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will not be able to recover this imaginary file!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, keep it'
+        }).then((result) => {
+            
+          if (result.value) {
+            deleteResearch(researchId)
+            // user clicked "OK"
+            // perform the desired action
+          } else {
+            // user clicked "Cancel"
+            // do nothing or perform some other action
+          }
+        });
+    }
+      
     
     return (
         <tr>
@@ -48,7 +72,7 @@ function CategoryItem(props) {
             <td>{item.year}</td>
             <td>
                 <Button onClick={() => downloadResearch(item.id)}>
-                    <FontAwesomeIcon icon="fa-solid fa-trash" />
+                    <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" />
                 </Button></td>
             <td>
                 <Link to="/researchForm" state={item}>
@@ -56,9 +80,10 @@ function CategoryItem(props) {
                         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
                     </Button>
                 </Link>          
-                <Button onClick={() => deleteResearch(item.id)}>
+                <Button onClick={() => confirmDelete(item.id)}>
                     <FontAwesomeIcon icon="fa-solid fa-trash" />
                 </Button>
+                
             </td>
         </tr>
     )

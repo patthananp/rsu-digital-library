@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import Home from './Home';
+import Home2 from './Home2'
 import Search from "./Pages/Search";
 import Footer from "./Components/Footer"
 import Header from "./Components/Header"
@@ -17,6 +18,7 @@ import Upload from './Pages/ResearchForm';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import Header2 from './Components/Header2';
 
 library.add(fas)
 
@@ -27,7 +29,7 @@ function App() {
       <Container>
         <Router>
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Home2/>} />
             <Route path="/search" element={<Search/>} />
             <Route path="/manage" element={<CategoryList/>} />
             <Route path="/login" element={<Login/>} />
