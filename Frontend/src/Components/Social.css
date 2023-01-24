@@ -23,3 +23,9 @@ color: #4968ad;
 a.twitter {
 color: #49a1eb;
 }
+
+.footer {
+    position: fixed;
+    bottom: 2rem;
+    /* box-sizing: 10px 10px 10px 10px; */
+}

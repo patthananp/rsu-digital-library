@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
+import './Search.css'
+
+
 
 function SearchBar () {
 
@@ -20,24 +23,38 @@ function SearchBar () {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Row>
+            {/* <Row> */}
         
-                <Col className='mt-2'sm={7}>
+                {/* <Col className='mt-2'sm={7}>
                     <Form.Group controlId="formBasicEmail" >
                         <Form.Label>Keyword</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control className='searchBox' type="text" placeholder="Enter Keyword" />
                     </Form.Group>
-                </Col>
-                <Col className='mt-2'sm={4}>
+                </Col> */}
+
+                {/* <Col className='mt-2'sm={7}> */}
+                    {/* <label>Keyword</label> */}
+                {/* </Col> */}
+                {/* <Col> */}
+                    <input className='searchBox' type="text" placeholder="Enter Keyword" />
+                    {/* <Button type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"/></Button> */}
+                    <button className='buttonbar' type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></button>
+
+
+                {/* </Col> */}
+                        
+
+                {/* <Col className='mt-2'sm={4}>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Year (s)</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
-                </Col>
-                <Col className='mt-4' sm={1}>
-                    <Button type="submit" className='w-100'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button>
-                </Col>
-            </Row>
+                </Col> */}
+                {/* <Col className='mt-4' sm={1}> */}
+                    {/* <Button type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button> */}
+                {/* </Col> */}
+
+            {/* </Row> */}
         </Form>
 
     )

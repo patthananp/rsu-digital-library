@@ -2,6 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router,Routes, Route, Link, NavLink, useNavigate} from "react-router-dom";
 
 import {Navbar, Nav, Container, Button} from 'react-bootstrap';
+import './Search.css'
+
 
 function Header() {
     const navigate = useNavigate();
@@ -26,7 +28,7 @@ function Header() {
     }
 
     return (
-        <Navbar sticky="top" bg="light">
+        <Navbar sticky="top" className='header'>
             <Container>
                 <Navbar.Brand href="/">
                 <img
