@@ -5,6 +5,7 @@ import {Navbar, Nav, Container, Button} from 'react-bootstrap';
 import './Search.css'
 
 
+
 function Header() {
     const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ function Header() {
     if (loggedInAs) {
         button = <Button onClick={handleLogoutClick}>Logout</Button>
     } else {
-        button = <Button onClick={handleLoginClick}>Login</Button>
+        button = <Button className='mainbutton' onClick={handleLoginClick}>Login</Button>
     }
 
     return (

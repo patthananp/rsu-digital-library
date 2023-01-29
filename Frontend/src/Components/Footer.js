@@ -12,10 +12,10 @@ function Footer() {
                 <Row>
                     <Col sm={4}>
                         <dl>
-                            <dt><Nav.Link href="/">Home</Nav.Link></dt>
-                            <dt><Nav.Link href="#2">Privacy Policy</Nav.Link></dt>
-                            <dt><Nav.Link href="#3">Terms of Service</Nav.Link></dt>
-                            <dt><Nav.Link href="#3">Question</Nav.Link></dt>
+                            <dt><Nav.Link className='whitenavlink' href="/">Home</Nav.Link></dt>
+                            <dt><Nav.Link className='whitenavlink' href="#2">Privacy Policy</Nav.Link></dt>
+                            <dt><Nav.Link className='whitenavlink' href="#3">Terms of Service</Nav.Link></dt>
+                            <dt><Nav.Link className='whitenavlink' href="#3">Question</Nav.Link></dt>
 
                         </dl>
                     </Col>

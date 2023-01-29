@@ -36,10 +36,13 @@ function SearchBar () {
                     {/* <label>Keyword</label> */}
                 {/* </Col> */}
                 {/* <Col> */}
-                    <input className='searchBox' type="text" placeholder="Enter Keyword" />
-                    {/* <Button type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"/></Button> */}
-                    <button className='buttonbar' type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></button>
-
+               
+                    <div class="searchBox">
+                        <input className='searchInput' type="text" placeholder="Enter Keyword" />
+                        {/* <Button type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"/></Button> */}
+                        <button className='searchButton' type="submit"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></button>
+                    </div>
+              
 
                 {/* </Col> */}
                         

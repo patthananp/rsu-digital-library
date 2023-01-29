@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import './Form.css'
 
 
 function CategoryItem(props) {
@@ -74,16 +75,16 @@ function CategoryItem(props) {
             <td>{item.pages}</td>
             <td>{item.year}</td>
             <td>
-                <Button onClick={() => downloadResearch(item.id)}>
+                <Button className='blackbutton' onClick={() => downloadResearch(item.id)}>
                     <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" />
                 </Button></td>
             <td>
                 <Link to="/researchForm" state={item}>
-                    <Button color='black'>
+                    <Button className='blackbutton'>
                         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
                     </Button>
                 </Link>          
-                <Button onClick={() => confirmDelete(item.id)}>
+                <Button className='blackbutton' onClick={() => confirmDelete(item.id)}>
                     <FontAwesomeIcon icon="fa-solid fa-trash" />
                 </Button>
                 
