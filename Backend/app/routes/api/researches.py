@@ -12,33 +12,37 @@ researches_bp = Blueprint('researches', __name__, url_prefix='/researches')
 @researches_bp.route('/', methods = ['GET'])
 def list():
     try:
-        researches = Research.query.all()
+        filters=request.args
+        query = db.session.query(Research)
+        for attr, value in filters.items():
+            query = query.filter(getattr(Research, attr) == value)
+        researches = query.all()
         if researches:
             researches = [research.as_dict() for research in researches]
         response = Response.success(researches)
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return jsonify(response), 200
+    return response
 
 @researches_bp.route('/<id>', methods = ['GET'])
 def retrieve(id):
     try:
+        # query = db.session.query(Research)
+        # research = query.filter(id==id).first()
         research = Research.query.filter_by(id=id).first()
-        print(research)
         if research:
             research = research.as_dict()
         response = Response.success(research)
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return json.dumps(research)
+    return response
 
 @researches_bp.route('/<id>/download', methods = ['GET'])
 def download(id):
     try:
         research = Research.query.filter_by(id=id).first()
-        print(research)
         if research:
             s3utils = S3utils()
             download_file_path = s3utils.download_file(research.filename)
@@ -57,10 +61,9 @@ def allowed_file(file_name):
 @researches_bp.route('/', methods = ['POST'])
 def create():
     try: 
-        print('post')
         files = request.files
         form_data = request.form
-        file = request.files['file']
+        file = files['file']
         if file and allowed_file(file.filename):
             file_name = file.filename
             file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], file_name)
@@ -73,11 +76,10 @@ def create():
         db.session.add(new_research)
         db.session.commit()
         response = Response.success(new_research.as_dict())
-        response = Response.success('success')
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return jsonify(response)
+    return response
 
 @researches_bp.route('/<id>', methods = ['PUT'])
 def update(id):
@@ -112,7 +114,7 @@ def update(id):
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return jsonify(response), 200
+    return response
 
  
 @researches_bp.route('/<id>', methods = ['DELETE'])
@@ -121,9 +123,8 @@ def delete(id):
         research = Research.query.filter_by(id = id).first_or_404()
         db.session.delete(research)
         db.session.commit()
+        response = Response.success('Data deleted successfully')
     except Exception as e:
         print(f'Exception: {e}')
         response = Response.error(e)
-    return {
-        'success' : 'Data deleted successfully'
-    }
+    return response
