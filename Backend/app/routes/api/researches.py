@@ -12,9 +12,9 @@ researches_bp = Blueprint('researches', __name__, url_prefix='/researches')
 @researches_bp.route('/', methods = ['GET'])
 def list():
     try:
-        filters=request.args
+        request_parameters = request.args
         query = db.session.query(Research)
-        for attr, value in filters.items():
+        for attr, value in request_parameters.items():
             query = query.filter(getattr(Research, attr) == value)
         researches = query.all()
         if researches:
