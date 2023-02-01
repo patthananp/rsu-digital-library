@@ -34,7 +34,7 @@ function App() {
   const [loggedInAs, setLoggedInAs] = useState()
 
   return (
-    <div>
+    <div className='App'>
       <Header />
       <Container>
         <Routes>

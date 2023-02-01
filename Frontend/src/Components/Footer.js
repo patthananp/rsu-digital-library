@@ -3,25 +3,17 @@ import {BrowserRouter as Router,Routes, Route, Link, NavLink} from "react-router
 import {Col, Container, Nav, Navbar, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faYoutube, faFacebook, faTwitter} from "@fortawesome/free-brands-svg-icons";
+
 import './Social.css'
+import './Footer.css'
 
 function Footer() {
     return (
-        <div className="mt-5 p-4 bg-dark text-white text-center">
+        <footer className="Footer p-4 bg-dark text-white">
             <Container>
                 <Row>
+                    <Col sm={8}>Copyrights &copy; 2023 | All rights reserved.</Col>
                     <Col sm={4}>
-                        <dl>
-                            <dt><Nav.Link className='whitenavlink' href="/">Home</Nav.Link></dt>
-                            <dt><Nav.Link className='whitenavlink' href="#2">Privacy Policy</Nav.Link></dt>
-                            <dt><Nav.Link className='whitenavlink' href="#3">Terms of Service</Nav.Link></dt>
-                            <dt><Nav.Link className='whitenavlink' href="#3">Question</Nav.Link></dt>
-
-                        </dl>
-                    </Col>
-                    <Col sm={8}>
-                    <div class="social-container">
-                        <h3>Social Follow</h3>
                         <a href="https://www.youtube.com/"
                             className="youtube social">
                             <FontAwesomeIcon icon={faYoutube} size="2x" />
@@ -33,34 +25,10 @@ function Footer() {
                         <a href="https://www.twitter.com/" className="twitter social">
                             <FontAwesomeIcon icon={faTwitter} size="2x" />
                         </a>
-                    </div>
                     </Col>
                 </Row>
-                <Row>
-                    <p>Copyright &copy; 2022</p>
-                </Row>
             </Container>
-        </div>
-        // <div className="mt-5 p-4 bg-dark text-white text-center">
-        //     <div className="container mt-3">
-        //         <ul class="nav nav-pills nav-justified bg-dark navbar-dark">
-        //             <li className="nav-item">
-        //                 <NavLink className="nav-link " to="/" color="white">Home</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink className="nav-link" to="/search">Advance Search</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink className="nav-link" to="/about">About</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink className="nav-link" to="/contact">Contact us</NavLink>
-        //             </li>
-        //         </ul>
-        //     </div>
-                
-        // </div>
-
+        </footer>
     )
 }
 export default Footer;
