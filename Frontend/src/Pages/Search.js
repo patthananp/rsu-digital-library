@@ -5,6 +5,7 @@ import {Button, Col, Form, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SearchResult from "../Components/SearchResult";
+import './Form.css'
 
 function Search() {
 
@@ -137,7 +138,7 @@ function Search() {
                         </Form.Group>
                     </Col>
                     <Col className="mt-5" sm={1}>
-                        <Button type="submit" className='w-100'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button>
+                        <Button type="submit" className='w-100 mainbutton'><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /></Button>
                     </Col>
                 </Row>
             </Form>

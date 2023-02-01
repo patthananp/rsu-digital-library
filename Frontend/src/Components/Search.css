@@ -1,5 +1,6 @@
 *{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  */
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 .title {
@@ -95,17 +96,41 @@
 }
 
 .header {
-    background-color: rgba(197, 191, 193, 0.93);
+    background-color: #d5d2d5;
     
 }
 
-.menubar {
+.footer {
+    background-color: #545454;
+}
+
+menubar {
+    text-decoration: none;
+}
+
+menubar:hover {
+    text-decoration: underline;
+    color: #b65353;
+    font-weight: bolder;
     
+}
+
+logoband {
+    text-decoration: none;
+}
+
+logoband:hover {
+    color: #b65353;
+    font-weight: bolder;
 }
 
 .mainbutton {
-    background-color: rgb(220, 72, 185) !important;
-    border-color: rgb(180, 8, 180) !important;
+    position: relative;
+    right: -5%;
+    background-color: #b65353 !important;
+    border-color: rgb(223, 223, 223) !important;
+    border-style: solid !important;
+    border-width: 3px !important;
     border-radius: 5px !important;
 }
 
@@ -115,28 +140,28 @@
     left: 50%;
     /* right: 50%; */
     transform:  translate(-50%,50%);
-    background: #484343;
+    background: #b65353;
     height: 60px;
     border-radius: 40px;
     padding: 10px;
-    width: 400px;
+    width: 600px;
 
 }
 
 .searchBox:hover > .searchButton {
-  background: white;
-  color : #000000;
+  background: rgb(86, 83, 83);
+  color : #fefefe;
 }
 
 .searchButton {
     position: relative;
-    top: -100%;
-    color: white;
+    top: 5%;
+    color: #b65353;
     float: right;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #2f3640;
+    background: #f5f6f8;
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -149,7 +174,7 @@
     outline:none;
     float:left;
     padding: 0;
-    color: rgb(220, 216, 216);
+    color: rgb(231, 227, 227);
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
