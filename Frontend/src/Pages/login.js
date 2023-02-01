@@ -31,63 +31,39 @@ function Login({setLoggedInAs}) {
 
     return (
         <div className="container">
-    
-            <form onSubmit={handleSubmit}>
-                <Col sm={4}></Col>
-
-                <Col sm={4}>
-
-                <h3>Login</h3>
-
-                {/* <div className="group mt-5">
-                    <input required="" type="text" className="input" />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <label>Email</label>
-                </div>
-
-                <div className="group mt-5">
-                    <input required="" type="text" className="input" />
-                    <span className="highlight"></span>
-                    <span className="bar"></span>
-                    <label>Password</label>
-                </div> */}
-            
-                <div className="mt-3">
-                    <label>Email</label>
-                    <input name="email" type="email" className="form-control" placeholder="Enter email" />
-                </div>
-
-                
-                <div className="mt-3">
-
-                    <label>Password</label>
-                    <input name="password" type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                
-                <div className="mt-3">
-
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1"> Remember me</label>
+            <div style=
+            {{  
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                <form className="col-6" onSubmit={handleSubmit}>
+                    <h3>Sign In</h3>
+                    <div>
+                        New user? <a href="/register">Create an account</a>
                     </div>
-                </div>
+                    <div className="mt-3">
+                        <label>Email</label>
+                        <input name="email" type="email" className="form-control" placeholder="Enter email" />
+                    </div>
 
-                <Button type="submit" 
-                    // href="/"
-                    className="btn btn-dark btn-lg btn-block mt-3">Sign in</Button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-                </Col>
-                
+                    <div className="mt-3">
 
-                <Nav>
-                    <Button type="submit" href="/register" className="button">Create an account</Button>
-                </Nav>
+                        <label>Password</label>
+                        <input name="password" type="password" className="form-control" placeholder="Enter password" />
+                    </div>
 
-            </form>
+                    <div className="mt-3">
+                        <p className="forgot-password text-right">
+                            <a href="#">Forgot your password?</a>
+                        </p>
+                        <Button type="submit" 
+                        // href="/"
+                        className="btn btn-dark btn-lg btn-block mt-3 w-100">Sign In</Button>
+                    </div>
+                </form>
+            </div>
+            
         </div>
     )
 }
