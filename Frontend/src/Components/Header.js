@@ -31,7 +31,7 @@ function Header() {
     return (
         <Navbar sticky="top" className='header'>
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/"><logoband>
                 <img
                     src="rsulogo.png"
                     width="50"
@@ -39,16 +39,16 @@ function Header() {
                     className="d-inline-block align-bottom"
                 />
                     RSU Digital Library
+                </logoband>
                 </Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link href="/search">Advance Search</Nav.Link>
+                        <Nav.Link href="/search"><menubar>Advance Search</menubar></Nav.Link>
                         {/* <Nav.Link href="/about">About</Nav.Link> */}
-                        <Nav.Link href="/manage">Management</Nav.Link>
+                        <Nav.Link href="/manage"><menubar>Management</menubar></Nav.Link>
                     </Nav>
 
                     <Navbar.Text>
-                        {/* Signed in as: <a href="#login">Patthanan</a> */}
                         Signed in as: <a href="#login">{loggedInAs ? JSON.parse(loggedInAs).firstname : 'Guest'}</a>
                     </Navbar.Text>
                     
