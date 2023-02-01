@@ -53,7 +53,7 @@ function Register(){
                 justifyContent: 'center',
             }}>
                 <form className="col-6"  onSubmit={handleSubmit}>
-                    <h3>Register Form</h3>
+                    <h3>Create new account</h3>
 
                     <div className="mt-3"> 
                         <label for="Name Title">Choose a Name Title : </label>
@@ -117,7 +117,7 @@ function Register(){
                             onChange={e => setFormData({...formData, password: e.target.value})} />
                     </div>
 
-                    <Button type="submit" className="btn btn-dark btn-lg btn-block mt-3 w-100">Create an account</Button>
+                    <Button type="submit" className="btn btn-dark btn-lg btn-block mt-3 w-100">Create new account</Button>
                 </form>
             </div>
         </div>
