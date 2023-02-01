@@ -16,9 +16,11 @@ outline: none;
 } */ 
 
 .blackbutton {
-    background-color: rgb(155, 150, 150) !important;
-    border-color: rgb(82, 79, 79) !important;
+    background-color: #b65353 !important;
+    border-color: rgb(245, 243, 243) !important;
     border-radius: 30px !important;
+    border-style: solid !important;
+    border-width: 3px !important;
 }
 
 button:hover {
