@@ -52,7 +52,7 @@ function Register(){
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <form className="col-6"  onSubmit={handleSubmit}>
+                <form className="mt-5 col-6"  onSubmit={handleSubmit}>
                     <h3>Create new account</h3>
 
                     <div className="mt-3"> 

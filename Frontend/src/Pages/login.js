@@ -37,7 +37,7 @@ function Login({setLoggedInAs}) {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <form className="col-6" onSubmit={handleSubmit}>
+                <form className="mt-5 col-6" onSubmit={handleSubmit}>
                     <h3>Sign In</h3>
                     <div>
                         New user? <a href="/register">Create an account</a>
