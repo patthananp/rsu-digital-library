@@ -71,14 +71,15 @@ function CategoryItem(props) {
     
     return (
         <tr>
-            <td>{item.title}</td> 
-            <td>{item.pages}</td>
-            <td>{item.year}</td>
-            <td>
+            <td className='col-sm-4'>{item.title}</td>
+            {/* <td>{item.pages}</td> */}
+            <td className='col-sm-4'>{item.keywords}</td>
+            <td className='col-sm-1'>{item.year}</td>
+            <td className='col-sm-1'>
                 <Button className='blackbutton' onClick={() => downloadResearch(item.id)}>
                     <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" />
                 </Button></td>
-            <td>
+            <td className='col-sm-2'> 
                 <Link to="/researchForm" state={item}>
                     <Button className='blackbutton'>
                         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />

@@ -36,12 +36,12 @@ function CategoryList() {
         <div>
             <Row>
                 <Col sm={4}>
-                    <h4 className='mt-3'>My Research</h4>
+                    <h2 className='mt-5'>My Research</h2>
                 </Col>
                 <Col sm={2}></Col>
                 <Col sm={2}></Col>
                 <Col className="mt-3" sm={4}>
-                    <Button type="submit" href="/researchForm" className="btn btn-dark btn-lg btn-block">Upload New Research</Button>
+                    <Button type="submit" href="/researchForm" className="btn btn-dark btn-lg btn-block mt-3">Upload New Research</Button>
                 </Col>
             </Row>
             {/* <h4 className='mt-5'>My Research</h4> */}

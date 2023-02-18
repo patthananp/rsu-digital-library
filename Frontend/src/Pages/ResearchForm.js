@@ -60,7 +60,7 @@ function ResearchForm(props) {
 
     return (
         <div>
-            <h4 className='mt-5'>{isNew ? "Create New Research" : "Update Research"}</h4>
+            <h4 className='mt-3'>{isNew ? "Create New Research" : "Update Research"}</h4>
 
             <Form onSubmit={handleSubmit}>
                 <Row className="mt-3">
@@ -110,7 +110,7 @@ function ResearchForm(props) {
                         <Form.Group controlId="keywords" onChange={handleChange}>
                             <Form.Label>Keywords</Form.Label>
                             {/* <div className="card p-fluid"> */}
-                                <Form.Control as="textarea" rows={3} defaultValue={formData.keywords} type="text" placeholder="Keyword" />
+                                <Form.Control as="textarea" rows={1} defaultValue={formData.keywords} type="text" placeholder="Keyword" />
                                 {/* <Chips value={values1} onChange={(e) => setValues1(e.value)} /> */}
                             {/* </div> */}
                         </Form.Group>
@@ -118,7 +118,7 @@ function ResearchForm(props) {
                     <Col className="mt-3" sm={12}>
                         <Form.Group controlId="abstract" onChange={handleChange}>
                             <Form.Label>Abstract</Form.Label>
-                            <Form.Control as="textarea" rows={10} defaultValue={formData.abstract} placeholder="Abstract" />
+                            <Form.Control as="textarea" rows={5} defaultValue={formData.abstract} placeholder="Abstract" />
                         </Form.Group>
                     </Col>
     

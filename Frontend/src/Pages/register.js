@@ -57,7 +57,7 @@ function Register(){
 
                     <div className="mt-3"> 
                         <label for="Name Title">Choose a Name Title : </label>
-                        <select className='form-select form-select-md mb-3' id="Name Title" 
+                        <select className='form-select form-select-md mb-3 form-control' id="Name Title" 
                             value={formData.prefix} 
                             onChange={e => setFormData({...formData, prefix: e.target.value})}
                         >

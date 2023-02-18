@@ -62,7 +62,7 @@ function Search() {
 
     return (
         <div>
-            <h1 className="mt-3">Advanced Search</h1>
+            <h2 className="mt-5">Advanced Search</h2>
             <Form onSubmit={handleSubmit}>
                 <Row className="mt-3">
                     <Col sm={10}>

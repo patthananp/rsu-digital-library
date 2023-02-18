@@ -1,20 +1,3 @@
-/* /* From uiverse.io */
-/* button {
-padding: 0.5em 7em;
-font-size: 15px;
-/* text-transform: uppercase; */
-/* letter-spacing: 2.5px; */
-/* font-weight: 1000; */
-/* color: #000;
-background-color: #fff;
-border: none;
-border-radius: 50px;
-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-transition: all 0.3s ease 0s;
-cursor: pointer;
-outline: none;
-} */ 
-
 .blackbutton {
     background-color: #b65353 !important;
     border-color: rgb(245, 243, 243) !important;
@@ -25,7 +8,7 @@ outline: none;
 
 button:hover {
 background-color: #23c483;
-box-shadow: 0px 15px 20px rgba(231, 210, 71, 0.4);
+box-shadow: 0px 15px 20px rgba(223, 222, 222, 0.4);
 color: #fff;
 transform: translateY(-7px);
 }
@@ -48,6 +31,15 @@ align-content: center;
     border-width: 3px !important;
     border-radius: 5px !important;
 }
+
+.fillbox {
+   background-color: none; 
+}
+/* 
+.fillbox:focus {
+    border: 2px solid salmon !important;
+    box-shadow: #b65353 !important;
+} */
 
 
 

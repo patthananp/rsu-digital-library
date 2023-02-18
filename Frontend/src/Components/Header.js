@@ -23,7 +23,7 @@ function Header() {
 
     let button
     if (loggedInAs) {
-        button = <Button onClick={handleLogoutClick}>Logout</Button>
+        button = <Button className='mainbutton' onClick={handleLogoutClick}>Logout</Button>
     } else {
         button = <Button className='mainbutton' onClick={handleLoginClick}>Login</Button>
     }
@@ -43,7 +43,7 @@ function Header() {
                 </Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link href="/search"><menubar>Advance Search</menubar></Nav.Link>
+                        <Nav.Link href="/search"><menubar>Advanced Search</menubar></Nav.Link>
                         {/* <Nav.Link href="/about">About</Nav.Link> */}
                         <Nav.Link href="/manage"><menubar>Management</menubar></Nav.Link>
                     </Nav>

@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Solway', serif;
 }
 
 .App-logo {
@@ -38,4 +39,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* @font-face {
+  font-family: 'RSU Bold';
+  src: url('./fonts/RSU_BOLD.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RSU';
+  src: url('./fonts/RSU_Regular.ttf') format('truetype');
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@400;700&display=swap');
+
+.form-control:focus {
+  border-color: #b65353 !important;
+  box-shadow: 0 0 0 0.05rem #b65353 !important;
 }
