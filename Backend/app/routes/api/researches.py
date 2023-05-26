@@ -106,6 +106,13 @@ def update(id):
 
             if form_data.get('research_type_id'):
                 research.research_type_id = form_data.get('research_type_id')
+                
+            if form_data.get('abstract'):
+                research.abstract = form_data.get('abstract')
+
+            if form_data.get('keywords'):
+                research.keywords = form_data.get('keywords')
+
         else:
             raise Exception(f're id = {id} not found.')
         
