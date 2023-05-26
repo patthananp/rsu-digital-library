@@ -13,7 +13,7 @@ import Register from "./Pages/register";
 import Category from "./Pages/category";
 import CategoryList from "./Pages/Manage";
 import Login from "./Pages/login";
-import Upload from './Pages/ResearchForm';
+import ResearchForm from './Pages/ResearchForm';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -44,7 +44,7 @@ function App() {
           <Route path="/manage" element={<CategoryList/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
-          <Route path="/researchForm" element={<Upload/>} />
+          <Route path="/researchForm" element={<ResearchForm/>} />
         </Routes>
       </Container>
       <Footer/>

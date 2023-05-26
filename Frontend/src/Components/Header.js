@@ -45,7 +45,7 @@ function Header() {
                     <Nav>
                         <Nav.Link href="/search"><menubar>Advanced Search</menubar></Nav.Link>
                         {/* <Nav.Link href="/about">About</Nav.Link> */}
-                        <Nav.Link href="/manage"><menubar>Management</menubar></Nav.Link>
+                        { loggedInAs ? <Nav.Link href="/manage"><menubar>Management</menubar></Nav.Link> : ''}
                     </Nav>
 
                     <Navbar.Text>
